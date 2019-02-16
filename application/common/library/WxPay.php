@@ -9,8 +9,8 @@ use think\Log;
 class WxPay 
 {
     private $appid = "wx99abd1149b53e297";
-    private $mch_id = "1512278761";
-    private $ApiKey = "813db7dd97edd55d819ca76331001d5f";
+    private $mch_id = "";
+    private $ApiKey = "";
     //传递参数给微信,生成预支付订单! 接收微信返回的数据,在反给APP端,APP端调用支付接口,完成支付
     public function pay($body,$order_id,$total_fee,$spbill_create_ip,$openid) 
     {

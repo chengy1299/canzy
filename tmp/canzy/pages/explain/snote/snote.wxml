@@ -1,0 +1,9 @@
+<!--pages/explain/snote/snote.wxml-->
+<view class="record">
+    <view class="on">
+      <text class="action">1、在首页点击右上角，弹出对话框，选择转发即可（注：必须分享首页才生效！）。</text>
+    </view>
+    <view class="on">
+      <text class="action">2、分享好友注册会员消费满10元，送您2元优惠卷（每单享有）。</text>
+    </view>
+</view>

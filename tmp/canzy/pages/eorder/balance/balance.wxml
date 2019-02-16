@@ -1,0 +1,70 @@
+<!--pages/order/balance/balance.wxml-->
+<view>
+  <scroll-view scroll-y="true" style='height:1092rpx;' >
+  <view class='top-bar'>
+    <view style="float:left">
+    <radio-group class="radio-group" bindchange="radioEatChange" >
+      <label class="radio" >
+        <radio style="margin-top:18rpx;margin-left:10rpx;width:60px" value="1" checked="true">堂食</radio>
+        <radio style="margin-top:18rpx;margin-left:10rpx;width:60px" value="2" >外带</radio>
+      </label>
+    </radio-group>
+    </view>
+    <view style="float:left;width:180rpx;margin-left:125rpx;">
+    <radio-group class="radio-group" bindchange="radioOrderChange" >
+      <label class="radio" >
+        <radio style="margin-top:4rpx;height:20px;font-size:12px;line-height:20px" value="1" checked="true">即时订单</radio>
+        <radio style="margin-top:4rpx;height:20px;font-size:12px;line-height:20px" value="2" >预约订单</radio>
+      </label>
+    </radio-group>
+    </view>
+    <view class="section" wx:if="{{TakeOrder==2}}" style="float:left;margin-top:6rpx;height:44px;width:168rpx;line-height:44px;color:white;background:#00beaf;font-size:14px;font-weight:bold;text-align:center;">
+      <picker mode="time" value="{{OrderTypetime}}" bindchange="bindTimeChange">
+        <view class="picker">
+          {{OrderTypetime}}
+        </view>
+      </picker>
+    </view> 
+  </view>
+  <!-- 订单详情 -->
+  <view class='order-info'>
+    <view class='order-info-title'>订单详情</view>
+    <view class='cart-list-box' wx:for="{{cartList}}" wx:key="unique">
+      <view class='list-info'>
+        <view>{{item.name}}</view>
+        <view class='list-info-size'>{{item.detail}}</view>
+      </view>
+      <view style='width:50%;padding:10px;'>
+        <view style='float:right'>
+          <view style='color:#A3A3A3'>x {{item.number}}</view>
+          <view>{{item.sum}} E币</view>
+        </view>
+      </view>
+    </view>
+    <view class='order-sum'>
+      <label>总计 </label>
+      <label class='order-sum-number activity-color'>{{sumMonney}} E币</label>
+    </view>
+  </view>
+  <!-- 备注 -->
+  <view class='note'>
+    <label style='font-size:13px;color:#A3A3A3'>备注</label>
+    <input type="text" placeholder='如有口味要求，请输入备注' bindblur='noteblur' class='note-text' />
+  </view>
+  </scroll-view>
+  <!-- 底部操作栏 -->
+  <view class="operate-bar" wx:if="{{showCart}}" >
+    <view class='gouwuche'>
+      <view style='padding:5px;display:flex'>
+        <i class="iconfont icon-gouwuchefill gouwuche-icon activity-color">
+          <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
+        </i>
+        <view class='gouwuche-price' style='color:white;font-size:18px'>{{sumMonney}} E币</view>
+      </view>
+    </view>
+    <view class="submit-btn activity-color-bg" bindtap='gopay'>
+      <view class="submit-btn-label color-white">确认兑换</view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,10 @@
+
+<view class="record">
+    <view class="on">
+      <text class="action">1、会员充值不同金额可获取对应的优惠劵。</text>
+    </view>
+    <view class="on">
+      <text class="action">2、老会员所推荐的会员消费满10元送2元优惠卷（每单享有）。</text>
+    </view>
+</view>
+

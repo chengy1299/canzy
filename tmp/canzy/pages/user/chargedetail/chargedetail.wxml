@@ -1,0 +1,24 @@
+<!--tradeAccount.wxml 收入 交易记录-->
+
+<!--<view class="in">
+    <view class="left">
+        <text class="left-in">支出记录</text>
+    </view>
+    <view class="right">
+        <text class="right-in">收入记录</text>
+    </view>
+</view>-->
+<view class="record" wx:if="{{items.length==0&&loading}}">
+    暂无数据
+</view>
+<view class="record" wx:for="{{items}}" wx:key="unique">
+    <view class="on">
+       <text class="action">交易金额（{{item.type==2 ? '支出' : '收入'}}）</text>
+       <text class="{{item.type==2 ? 'money' : 'money-r'}}">{{item.order_id==0?'余额充值':'支付订单'}}：￥ {{item.money}}</text>
+    </view>
+  <view class="under">
+       <text class="time">交易时间: <text class="detail">{{item.createtime}}</text> </text>
+       <text class="succerr">交易成功</text>
+  </view>
+</view>
+

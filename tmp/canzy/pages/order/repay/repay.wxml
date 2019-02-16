@@ -1,0 +1,126 @@
+<!--pages/order/detail/detail.wxml-->
+<view>
+  <view class='go-center go-top-10' wx:if="{{orderData.order_state > 1}}">
+    <view class="card-box">
+      <view class="card-fetch">
+        <view class="card-left-bar">
+          <label>取</label>
+          <label>餐</label>
+          <label>号</label>
+        </view>
+      </view>
+      <view>
+        <view class='go-top-10'>
+          <label class='number-card'>{{orderData.take_food_no}}</label>
+          <label class='statu-card'>制作中</label>
+        </view>
+        <!--<view class='note-card'>
+          美食制作中,尽快为你服务
+        </view>-->
+      </view>
+    </view>
+  </view>
+  <view class='top-bar' wx:if="{{orderData.order_state ==1}}">
+    <view style="float:left;line-height:50px">
+        就餐方式
+    </view>
+    <view style="float:left">
+    <radio-group class="radio-group" bindchange="radioEatChange" >
+      <label class="radio" >
+        <radio style="margin-top:18rpx;margin-left:30rpx;width:80px" value="1" checked="true">堂食</radio>
+        <radio style="margin-top:18rpx;margin-left:20rpx;width:80px" value="2" >外带</radio>
+      </label>
+    </radio-group>
+    </view>
+  </view>
+  <view class='top-bar' style="margin-top:5px">
+    <view style="float:left;line-height:50px;">
+        预约时间
+    </view>
+    <view style="float:left;">
+    <radio-group class="radio-group" bindchange="radioOrderChange" >
+      <label class="radio" >
+        <radio style="margin-top:18rpx;margin-left:30rpx;width:80px" value="1" checked="true">即时订单</radio>
+        <radio style="margin-top:18rpx;margin-left:20rpx;width:80px" value="2" >预约订单</radio>
+      </label>
+    </radio-group>
+    </view>
+    <view class="section" wx:if="{{TakeOrder==2}}" style="float:right;margin-top:6rpx;height:44px;width:168rpx;line-height:44px;color:white;background:#00beaf;font-size:14px;font-weight:bold;text-align:center;">
+      <picker mode="time" value="{{OrderTypetime}}" bindchange="bindTimeChange">
+        <view class="picker">
+          {{OrderTypetime}}
+        </view>
+      </picker>
+    </view> 
+
+  </view>
+  <!-- 订单详情 -->
+  <view class='order-info'>
+    <view class='order-info-title'>订单详情</view>
+    <view class='cart-list-box' wx:for="{{orderData.goods_info}}" wx:key="unique">
+      <view class='list-info'>
+        <view>{{item.name}}</view>
+        <view class='list-info-size'>{{item.detail}}</view>
+      </view>
+      <view style='width:50%;padding:10px;'>
+        <view style='float:right'>
+          <view style='color:#A3A3A3'>x {{item.number}}</view>
+          <view>¥ {{item.sum}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='order-sum'>
+      <label>优惠折扣 </label>
+      <label class='order-sum-number activity-color'>-¥ {{orderData.coupon_amount}}</label>
+    </view>
+    <view class='order-sum'>
+      <label>优惠卷折扣 </label>
+      <label class='order-sum-number activity-color'>-¥ {{orderData.goods_amount-orderData.order_amount-orderData.coupon_amount}}</label>
+    </view>
+    <view class='order-sum'>
+      <label>总计 </label>
+      <label class='order-sum-number activity-color'>¥ {{orderData.order_amount}}</label>
+    </view>
+  </view>
+  <view class="operate">
+      <text wx:if="{{orderData.order_state==1}}" class="operate-item pay" bindtap="payorder" data-id="{{orderData.pay_no}}" data-index='1'>微信支付</text>
+      <text wx:if="{{orderData.order_state==1}}" class="operate-item pay" bindtap="payorder"  data-index='3'>余额支付</text>
+      <text wx:if="{{item.order_state==2}}" class="operate-item " >已支付</text>
+      <text wx:if="{{item.order_state==3}}" class="operate-item " >已完成</text>
+      <text wx:if="{{orderData.order_state==1}}" class="cancel" bindtap="delorder" data-id="{{orderData.order_id}}">取消订单</text>
+  </view>
+  <view class='note' wx:if="{{orderData.order_state==1}}">
+    <label style='font-size:13px;color:#A3A3A3'>备注</label>
+    <input type="text" placeholder='默认常温，常规糖，如有口味要求，请输入备注' bindblur='noteblur' class='note-text' value="{{note}}" />
+  </view>
+  <view class='order-info' wx:if="{{orderData.order_state > 1}}">
+    <view class='order-info-title flex-display' >订单类型
+      <view class="order-info-li" wx:if="{{orderData.order_type_time==0}}">即时订单</view>
+      <view class="order-info-li" wx:if="{{orderData.order_type_time!=0}}">{{orderData.order_type_time}}</view>
+    </view>
+    <view class='order-info-title'>订单信息</view>
+    <view class='order-info-title flex-display' >支付状态
+      <view class="order-info-li" wx:if="{{orderData.order_state==1}}">待支付</view>
+      <view class="order-info-li" wx:if="{{orderData.order_state>1}}">支付成功</view>
+    </view>
+    <view class='order-info-title flex-display' >支付单号
+      <view style='color:black;margin-left:10px'>{{orderData.pay_no}}</view>
+    </view>
+    <view class='order-info-title flex-display' >支付方式
+      <view class="order-info-li">{{orderData.payment_code==1?'微信支付':orderData.payment_code==2?'支付宝支付':orderData.payment_code==3?'余额支付':'E币兑换'}}</view>
+    </view>
+    <view class='order-info-title flex-display' >订单时间
+      <view class="order-info-li">{{orderData.createtime}}</view>
+    </view>
+    <view class='order-info-title flex-display' >备注
+      <view class="order-info-li">{{orderData.remark}}</view>
+    </view>
+  </view>
+
+  <view style='margin-top:6px;height:40px;'  wx:if="{{orderData.order_state == 2}}">
+  <view style='margin-top:6px;' class='go-center'>
+    <label class='note-exchange'>请凭此画面至取餐柜台领取美食</label>
+  </view>
+  </view>
+</view>

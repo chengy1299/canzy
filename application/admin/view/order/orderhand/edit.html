@@ -1,0 +1,114 @@
+<form id="edit-form" class="form-horizontal" role="form" data-toggle="validator" method="POST" action="">
+
+    <div class="form-group">
+        <label for="c-order_id" class="control-label col-xs-12 col-sm-2">{:__('Order_Id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-order_id" class="form-control" name="row[order_id]"  type="number" value="{$row.order_id}" disabled="none" >
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="c-pay_no" class="control-label col-xs-12 col-sm-2">{:__('Pay_No')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input id="c-pay_no" class="form-control" name="row[pay_no]" type="text" value="{$row.pay_no}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-user_id" class="control-label col-xs-12 col-sm-2">{:__('User_Id')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-user_id" name="row[user_id]" type="number" value="{$row.user_id}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-goods_info" class="control-label col-xs-12 col-sm-2">{:__('Goods_Info')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <textarea rows="10" class="form-control" id="c-goods_info" name="row[goods_info]" disabled="none">{$row.goods_info}</textarea> 
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-goods_count" class="control-label col-xs-12 col-sm-2">{:__('Goods_Count')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-goods_count" name="row[goods_count]" type="text" value="{$row.goods_count}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-goods_amount" class="control-label col-xs-12 col-sm-2">{:__('Goods_Amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-goods_amount" name="row[goods_amount]" type="text" value="{$row.goods_amount}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-coupon_amount" class="control-label col-xs-12 col-sm-2">{:__('Coupon_Amount')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-coupon_amount" name="row[coupon_amount]" type="text" value="{$row.coupon_amount}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-coupon_id" class="control-label col-xs-12 col-sm-2">{:__('Coupon_Id')}ID:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-coupon_id" name="row[coupon_id]" type="text" value="{$row.coupon_id}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-remark" class="control-label col-xs-12 col-sm-2">{:__('Remark')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-remark" name="row[remark]" type="text" value="{$row.remark}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-eat_type" class="control-label col-xs-12 col-sm-2">{:__('Eat_Type')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-eat_type" name="row[eat_type]" type="text" value="{$row.eat_type==1?'堂食':'外带'}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-take_food_no" class="control-label col-xs-12 col-sm-2">{:__('Take_Food_No')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-take_food_no" name="row[take_food_no]" type="text" value="{$row.take_food_no}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-order_type_time" class="control-label col-xs-12 col-sm-2">{:__('Order_Type_Time')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-order_type_time" name="row[order_type_time]" type="text" value="{$row.order_type_time}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-payment_code" class="control-label col-xs-12 col-sm-2">{:__('Payment_Code')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            <input class="form-control" id="c-payment_code" name="row[payment_code]" type="text" value="{$row.payment_code==1?'微信支付':$row.payment_code==2?'支付宝':$row.payment_code==3?'余额支付':'E币兑换'}" disabled="none">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-payment_time" class="control-label col-xs-12 col-sm-2">{:__('Payment_Time')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-payment_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="" type="text" value="{$row.payment_time|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-finnshed_time" class="control-label col-xs-12 col-sm-2">{:__('Finnshed_Time')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-finnshed_time" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="" type="text" value="{$row.finnshed_time|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="c-createtime" class="control-label col-xs-12 col-sm-2">{:__('Createtime')}:</label>
+        <div class="col-xs-12 col-sm-4">
+            <input id="c-createtime" data-rule="required" class="form-control datetimepicker" data-date-format="YYYY-MM-DD HH:mm:ss" data-use-current="true" name="" type="text" value="{$row.createtime|datetime}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="order_state" class="control-label col-xs-12 col-sm-2">{:__('Order_State')}:</label>
+        <div class="col-xs-12 col-sm-8">
+            {:build_radios('row[order_state]', ['2'=>__('已支付'),'3'=>__('完成')], $row['order_state'])}
+        </div>
+    </div>
+    
+    <div class="form-group layer-footer">
+        <label class="control-label col-xs-12 col-sm-2"></label>
+        <div class="col-xs-12 col-sm-8">
+            <button type="submit" class="btn btn-success btn-embossed disabled">{:__('OK')}</button>
+            <button type="reset" class="btn btn-default btn-embossed">{:__('Reset')}</button>
+        </div>
+    </div>
+</form>

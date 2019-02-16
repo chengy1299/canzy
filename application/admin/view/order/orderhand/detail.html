@@ -1,0 +1,32 @@
+<table class="table table-striped">
+    订单ID【{$row.order_id}】
+    <br/>
+    <thead>
+        <tr>
+            <th>商品ID</th>
+            <th>商品名称</th>
+            <th>数量</th>
+            <th>规格</th>
+            <th>商品单价</th>
+            <th>总价</th>
+        </tr>
+    </thead>
+    <tbody>
+        {volist name="row.goods_info" id="vo"  }
+            <tr>
+                <td>{$vo.goods_id}</td>
+                <td>{$vo.name}</td>
+                <td>{$vo.number}</td>
+                <td>{$vo.detail}</td>
+                <td>{$vo.price}</td>
+                <td>{$vo.sum}</td>
+            </tr>
+        {/volist}
+    </tbody>
+</table>
+<div class="hide layer-footer">
+    <label class="control-label col-xs-12 col-sm-2"></label>
+    <div class="col-xs-12 col-sm-8">
+        <button type="reset" class="btn btn-primary btn-embossed btn-close" onclick="Layer.closeAll();">{:__('Close')}</button>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+
+<view class="record">
+    <view class="on">
+      <text class="action">1、注册会员即送2E币。</text>
+    </view>
+    <view class="on">
+      <text class="action">2、会员消费满10元送1E币（每单享有）。</text>
+    </view>
+    <view class="on">
+      <text class="action">3、老会员所推荐的会员消费满10元送1E币（每单享有）。</text>
+    </view>
+    <view class="on">
+      <text class="action">4、E币可兑换同等价值的饮品或甜品。</text>
+    </view>
+</view>
+

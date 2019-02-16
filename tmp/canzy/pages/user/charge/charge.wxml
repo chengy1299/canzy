@@ -1,0 +1,19 @@
+<view class="content">
+  <view class="binner">
+    <image src="../../../images/chargebg.png"></image>
+  </view>
+  <block wx:for="{{items}}" wx:key="item" data-index="{{index}}">
+    <view class="vip-list">
+      <view class="flex-row">
+        <view class="text">
+          <view class="title">
+            充值{{item.charge_worth}}元
+            <i wx:if="{{item.recommend==1}}" style="color:#00beaf;" >（ 推荐 ）</i>
+          </view>
+          <text class="sub-title">{{item.desc}}</text>
+        </view>
+        <view class="chongzhi" data-id='{{item.id}}' data-index="{{index}}" bindtap='charge'>立即充值</view>
+      </view>
+    </view>
+  </block>
+</view>

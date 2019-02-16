@@ -1,0 +1,145 @@
+<view>
+<!-- 左侧菜单 -->
+  <view class="list-left-menu">
+    <view wx:for="{{listData.data}}" wx:key="unique" class="{{index==activeIndex?'list-left-menu-box-selected':'list-left-menu-box-unselect'}}" data-index="{{index}}" bindtap='selectMenu'>
+      <view class="list-menu-name">{{item.name}}</view>
+    </view>
+  </view>
+  <!-- 右侧菜单 -->
+  <scroll-view scroll-y="true" style='height:1040rpx;' bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view class="content" id="a{{index}}" wx:for="{{listData.data}}" wx:key="unique">
+      <view class='list-tab'>{{item.name}}</view>
+      <view class='content-list' wx:for="{{item.goods}}" wx:key="unique" wx:for-item="items" wx:for-index="indexs">
+        <view class='list-image-box' data-type="{{index}}" data-index="{{indexs}}" data-goods_id="{{items.id}}" bindtap="showImg">
+          <image class="list-image" mode="widthFix" src='{{items.img}}'></image>
+        </view>
+        <view class='issue-name'>
+          <view>{{items.name}}</view>
+          <view style="color:#c1c1c1;font-size:12px;margin-top:10rpx;">月销量{{items.sales}}</view>
+          <view style='margin-top:10rpx;color:#00beaf'>
+            ¥ {{items.price}}
+            <span style="padding:14rpx;float:right">
+            <i style="color:black;" wx:if="{{orderCartNum[items.id]&&!models[items.type_id]}}" class="iconfont icon-jian icon-li-circle" data-getjian="true" data-goods_id="{{items.id}}" data-index="{{orderCartNum[items.id].cartIndex}}" bindtap="decNumber"></i>
+
+            <i style="padding:14rpx" wx:if="{{orderCartNum[items.id]&&!models[items.type_id]}}">{{orderCartNum[items.id].num}}</i>
+
+            <view class="dot" wx:if="{{orderCartNum[items.id]&&models[items.type_id]}}">{{orderCartNum[items.id].num}}</view>
+            <i class="plus-icon-g" wx:if="{{items.is_sell_out==1&&open==0&&models[items.type_id]}}" data-type="{{index}}" data-index="{{indexs}}" data-type_id="{{items.type_id}}" bindtap="selectInfo">
+              选规格
+            </i>
+
+            <i class="iconfont icon-jiahao2fill plus-icon" wx:if="{{items.is_sell_out==1&&open==0&&!models[items.type_id]}}" data-type="{{index}}" data-index="{{indexs}}" data-type_id="{{items.type_id}}" bindtap="selectInfo" ></i>
+            </span>
+            <i class="plus-icon" style="color:#E3E3E3" wx:if="{{items.is_sell_out==0&&open==0}}">已售罄</i>
+            <i class="plus-icon" style="color:#E3E3E3" wx:if="{{open==1}}">已打烊</i>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 底部操作菜单 -->
+  <view class="operate-bar" wx:if="{{loading}}">
+    <view class='gouwuche'>
+      <view style='padding:5px;display:flex'>
+        <i class="iconfont icon-gouwuchefill gouwuche-icon {{sumMonney!=0?'activity-color':'' }}" bindtap="showCartList">
+          <span class="number-msg" wx:if="{{cartList.length!=0}}">{{cupNumber}}</span>
+        </i>
+
+        <view class='gouwuche-price' wx:if="{{sumMonney==0}}">购物车是空的</view>
+        <view class='gouwuche-price' style='color:white;font-size:18px' wx:if="{{sumMonney!=0}}">¥ {{sumMonney}}</view>
+      </view>
+    </view>
+    <view class="submit-btn {{sumMonney!=0?'activity-color-bg':'' }}" bindtap='goBalance'>
+      <view class="submit-btn-label {{sumMonney!=0?'color-white':'' }}">选好了</view>
+    </view>
+  </view>
+</view>
+
+<view class="drawer_screen" bindtap="showImg" data-statu="close" wx:if="{{showImg}}"></view>
+<view class="drawer_box_ad" wx:if="{{showImg}}">
+  <view class="drawer_content_ad">
+    <view style='font-size:16px;display:flex;justify-content:center;  '> {{listData.data[currentType].goods[currentIndex].name}} </view>
+    <view class='list-image-box' data-type="{{index}}" data-index="{{indexs}}" bindtap="showImg">
+      <image style="height:500rpx;width:600rpx;margin-top:10px" src='{{listData.data[currentType].goods[currentIndex].img}}'></image>
+    </view>
+    <view class="select-price" style="margin-top:350rpx">
+      ¥{{listData.data[currentType].goods[currentIndex].price}}
+      <view style="color:#c1c1c1;font-size:12px;float:left;margin-left:30rpx;">月销量{{listData.data[currentType].goods[currentIndex].sales}}</view>
+
+      <button class="btn-putIn" bindtap='selectInfo' wx:if="{{listData.data[currentType].goods[currentIndex].is_sell_out==1&&open==0&&!orderCartNum[goods_id]}}" data-type="{{currentType}}" data-index="{{currentIndex}}" data-type_id="{{listData.data[currentType].goods[currentIndex].type_id}}" >加入购物车</button>
+
+      
+      <i style="color:black;margin-left:220rpx" wx:if="{{orderCartNum[goods_id]}}" class="iconfont icon-jian icon-li-circle" data-getjian="true" data-goods_id="{{goods_id}}" data-index="{{orderCartNum[goods_id].cartIndex}}" bindtap="decNumber"></i>
+
+      <i style="padding:16rpx" wx:if="{{orderCartNum[goods_id]}}">{{orderCartNum[goods_id].num}}</i>
+
+      <i class="iconfont icon-jiahao2fill plus-icon" wx:if="{{listData.data[currentType].goods[currentIndex].is_sell_out==1&&open==0&&orderCartNum[goods_id]}}" data-type="{{currentType}}" data-index="{{currentIndex}}" data-type_id="{{listData.data[currentType].goods[currentIndex].type_id}}" bindtap="selectInfo" ></i>
+      
+      <i class="plus-icon" style="color:#E3E3E3;margin-left:220rpx" wx:if="{{listData.data[currentType].goods[currentIndex].is_sell_out==0&&open==0}}">已售罄</i>
+      <i class="plus-icon" style="color:#E3E3E3;margin-left:220rpx" wx:if="{{open==1}}">已打烊</i>
+    </view>
+  </view>
+</view>
+
+<!-- 选择弹窗 -->
+<view class="drawer_screen" bindtap="selectInfo" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view class="drawer_box_ad" style="top:30%;" wx:if="{{showModalStatus}}">
+  <view class="drawer_content_ad" style="height:300rpx">
+    <view style='font-size:16px;display:flex;justify-content:center;top:80rpx'> {{listData.data[currentType].goods[currentIndex].name}} </view>
+
+    <view wx:for="{{Items}}" wx:key="unique" wx:for-item="item" wx:for-index="indexs">
+      <view class="select-line-nav">{{item.name}}</view>
+      <view style='display:flex'>
+        <view class="select-tab {{index==item.index?'select-active':''}}" wx:for="{{item.item}}" wx:key="unique" wx:for-item="items" bindtap='chooseSE' data-cartindex="{{cartIndex}}" data-index='{{index}}' data-indexs='{{indexs}}' data-type_id="{{type_id}}" >{{items}}</view>
+      </view>
+    </view>
+    <view class="select-price">¥{{listData.data[currentType].goods[currentIndex].price}}
+      <!--<button class="btn-putIn" data-type_id="{{type_id}}" bindtap='addToCart'>加入购物车</button>-->
+
+      <button class="btn-putIn" bindtap='addToCart' wx:if="{{listData.data[currentType].goods[currentIndex].is_sell_out==1&&open==0&&!orderCartNum[goods_id][cartIndex]}}">加入购物车</button>
+
+      <i style="color:black;margin-left:350rpx" wx:if="{{orderCartNum[goods_id][cartIndex]}}" class="iconfont icon-jian icon-li-circle" data-getjian="true" data-typeup="true" data-goods_id="{{goods_id}}" data-index="{{orderCartNum[goods_id][cartIndex].cartIndex}}" bindtap="decNumber"></i>
+
+      <i style="padding:16rpx" wx:if="{{orderCartNum[goods_id][cartIndex]}}">{{orderCartNum[goods_id][cartIndex].num}}</i>
+
+      <i class="iconfont icon-jiahao2fill plus-icon" wx:if="{{listData.data[currentType].goods[currentIndex].is_sell_out==1&&open==0&&orderCartNum[goods_id][cartIndex]}}" data-goods_id="{{goods_id}}" data-index="{{orderCartNum[goods_id][cartIndex].cartIndex}}" data-typeup="true" bindtap="addNumber" ></i>
+    </view>
+  </view>
+</view>
+<!-- 购物车 -->
+<view class="drawer_screen" bindtap="showCartList" data-statu="close" wx:if="{{showCart}}"></view>
+<view class="cartlist-float" wx:if="{{showCart}}">
+  <view style='background:#F0F0F0;height:62rpx'>
+    <label class='label-cart-bar'>
+      <label style='padding:5px'>已选商品</label>
+    </label>
+    <label class='icon-clear' bindtap='clearCartList'>
+      <i class="iconfont icon-lajitong"></i>
+      <label class="label-clear">清空购物车</label>
+    </label>
+  </view>
+  <scroll-view scroll-y="true" class="{{cartList.length>5?'cart-scroll-list':''}}">
+
+    <view class='cart-list-box' wx:for="{{cartList}}" wx:key="unique" style='border-bottom:2px #E3E3E3 solid'>
+      <view class='list-info'>
+        <view>{{item.name}}</view>
+        <view class='list-info-size'>{{item.detail}}</view>
+      </view>
+      <view style='width:50%;padding:10px;'>
+        <view style='float:right'>
+          <label class='activity-color'>¥ {{item.sum}}</label>
+          <i class="iconfont icon-jian icon-li-circle" data-goods_id="{{item.goods_id}}" data-index="{{index}}" bindtap="decNumber"></i>
+          {{item.number}}
+          <i class="iconfont icon-jiahao2fill activity-color font20" data-goods_id="{{item.goods_id}}" data-index="{{index}}" bindtap="addNumber"></i>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<!-- 优惠宣传条 -->
+<view class='cut-bar' wx:if="{{sumMonney==0&&is_coupon==true}}">
+  <label>满{{total_money}}立减{{coupon}}元(手机点餐专享)</label>
+</view>
+<view class='cut-bar' wx:if="{{sumMonney<total_money&&sumMonney!=0&&is_coupon==true}}">
+  <label>满{{total_money}}立减{{coupon}}元,还差{{total_money-sumMonney}}元,去凑单></label>
+</view>

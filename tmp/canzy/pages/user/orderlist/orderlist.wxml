@@ -1,0 +1,54 @@
+<!--pages/order/list/list.wxml-->
+
+<view class="top-nav">
+  <view class="top-nav-bar">
+    未完成订单
+  </view>
+</view>
+<view class="container" class="ma-top-120">
+  <view class="carts">
+    <view class="weui-pull">
+      <view class="weui-pull__tips">
+        <icon type="loading" class="weui-pull__loading"></icon>
+        <!--<text>下拉刷新</text>-->
+      </view>
+      <view class=" weui-panel__access" bindchange="changeSlider" style="display:{{current == 0 ? 'block' : 'none'}}">
+        <view class="weui-panel__bd">
+          <view wx:if="{{order0.length==0&&loading}}">
+            <view class='go-center' style="margin-top:100px">
+              <i class="iconfont icon-dingdan dindgan-i" ></i>
+            </view>
+            <view class='go-center note-btn'>目前没有订单</view>
+            <view class='go-center' style='margin-top:20px' >
+              <view class='go-center down-center start-btn' bindtap='golist'>开始点餐</view>
+            </view>
+          </view>
+          <view class="padding-wrap"  wx:for="{{order0}}" bindtap="godetail" wx:key="unique" id='{{item.order_id}}' wx:for-index="index" data-index="{{index}}">
+           <!-- <view class="weui-media-box__hd_in-appmsg" style="height:200rpx">
+              <image src="{{itemlist.spec_key}}" alt class="weui-media-box__thumb carts-image"></image>
+            </view>-->
+            <span class="order-no" style="margin-left:250rpx">取餐号：{{item.take_food_no}}</span>
+            <view class="weui-media-box weui-media-box_appmsg content-color" wx:for="{{item.goods_info}}" wx:key="unique"  wx:for-item="itemlist" >
+              <view class="weui-media-box__bd_in-appmsg">
+                <text class="weui-media-box__desc">{{itemlist.name}}</text>
+                <view class="">
+                  <text class="carts-price origin">{{itemlist.number}}x{{itemlist.price}}</text>
+                  <text class="carts-price total">¥{{itemlist.number*itemlist.price}}</text>
+                </view>
+              </view>
+            </view>
+            <view class="operate">
+              <text class="all-total" style="margin-right:30rpx" wx:if="{{item.order_state==1}}">待支付</text>
+              <text class="all-total" style="margin-right:30rpx" wx:if="{{item.order_state==2}}">已支付</text>
+              <text class="all-total" style="margin-right:30rpx" wx:if="{{item.order_state==3}}">已完成</text>
+              <text class="all-total" style="margin-right:140rpx" wx:if="{{item.order_type_time==0}}">即时订单</text>
+              <text class="all-total" style="margin-right:140rpx" wx:if="{{item.order_type_time!=0}}">{{item.order_type_time}}</text>
+              <text class="all-total">折扣后总价：￥{{item.order_amount}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

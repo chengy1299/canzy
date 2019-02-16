@@ -1,0 +1,271 @@
+/* pages/list/list.wxss */
+.page{
+  overflow-y:hidden;
+  height:100%;
+}
+.list-left-menu{
+  width:160rpx;
+  font-size:28rpx;
+  position: absolute;
+  left:0px;
+  z-index: 10;
+}
+.list-left-menu-box-unselect{
+  padding:10rpx;
+  border-bottom:1px solid #E3E3E3;
+  height:72rpx;
+  color: #6C6C6C;
+  background:#F9F9F9;
+}
+.list-left-menu-box-selected{
+  padding:10rpx;
+  height:72rpx;
+  color: #00beaf;
+  border-left:6rpx solid #00beaf;
+  background:white;
+}
+
+.list-tab{
+  margin-left:170rpx;
+  font-size:25rpx;
+  background:#F3F4F6;
+  color:#CBCCCF;
+  padding:4rpx
+}
+.list-menu-name{
+  text-align: center;
+  margin-top:14rpx;
+}
+.list-image-box{
+  width:160rpx;
+  height:180rpx;
+  text-align: center;
+}
+.content-list{
+  margin-left:160rpx;
+  display:flex;
+  border-bottom: 2rpx solid #E3E3E3;
+}
+.list-image{
+  width:75%;
+  margin-top:10rpx;
+}
+.issue-name{
+  width:200px;
+  font-size:30rpx;
+  margin-top:20rpx;
+  margin-left:40rpx;
+}
+.plus-icon{
+  float:right;
+  color:#00beaf;
+  font-size:46rpx;
+}
+.plus-icon-g{
+  float:right;
+  color:white;
+  width:100rpx;
+  height:50rpx;
+  font-size:32rpx;
+  border-radius:15rpx;
+  line-height:50rpx;
+  text-align: center;
+  background:#00beaf;
+}
+.operate-bar{
+  z-index: 1001; 
+  position: absolute;
+  bottom: 0px;
+  height:110rpx;
+  width:100%;
+  display: flex;
+}
+.gouwuche{
+  width:75%;
+  background:#353535;
+  height: 100%; 
+  
+}
+.gouwuche-icon{
+  font-size:40px;
+  color:#87888E;
+  margin-left:20rpx;
+  position: relative;
+}
+.number-msg{
+  padding: 2rpx 14rpx;
+  border-radius:50%;
+  background:red;
+  color:white;
+  font-size:14px;
+  position: absolute;
+  text-align: center;
+  top:0px;
+  right:-10rpx;
+}
+
+.gouwuche-price{
+  color:#A9A9A9;
+  display:flex;
+  align-items: center;
+  margin-left:20rpx;
+  font-size:15px
+}
+.submit-btn{
+  height:100%;
+  background:#F7F7F7;
+  width:25%;
+  display:flex;
+}
+.submit-btn-label{
+  color:#A9A9A9;
+  font-size:15px;
+  margin:auto;
+}
+
+.drawer_screen {  
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1000;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+}  
+  
+.drawer_box_ad { 
+  margin-left: 7%; 
+  width: 86%; 
+  overflow: hidden;  
+  position: fixed;  
+  top: 15%; 
+  z-index: 1001;  
+  background: #FFFFFF;  
+  border-radius: 5px;
+} 
+.cartlist-float{  
+  width: 100%; 
+  overflow: hidden;  
+  position: fixed;   
+  z-index: 1001;
+  bottom: 110rpx;
+  max-height: 500rpx;  
+} 
+
+
+.drawer_content_ad {  
+  height: 640rpx;
+  width: 100%;
+  padding: 20rpx;
+}
+
+.select-line-nav{
+  font-size:14px;
+  margin-left:10rpx;
+  margin-top:20rpx;
+  color:#ABABAB;
+}
+
+.select-tab{
+  padding:10rpx 14rpx;
+  border:2rpx solid #ABABAB;
+  font-size:14px;
+  border-radius:10rpx;
+  margin:10rpx;
+  color:#ABABAB;
+  z-index:1002;
+}
+.select-active{
+  color:#00beaf;
+  border:2rpx solid #00beaf;
+}
+.select-price{
+  font-size:14px;
+  color:#00beaf;
+  margin-top:35rpx;
+  display:flex;
+  align-items: center;
+  margin-left:20rpx;
+}
+.btn-putIn{
+  height:80rpx;
+  width:200rpx;
+  font-size:16px;
+  line-height:80rpx;
+  background:#00beaf;
+  color:white;
+  margin-right:40rpx;
+}
+
+.activity-color{
+  color:#00beaf;
+}
+.color-white{
+  color:white;
+}
+.activity-color-bg{
+  background:#00beaf;
+}
+
+.label-cart-bar{
+  color:#878787;
+  font-size:14px;
+  border-left:8rpx solid #00beaf;
+  margin-left: 40rpx;
+}
+.icon-clear{
+    color:#878787;
+    float: right;
+    margin-right: 20rpx;
+}
+.label-clear{
+    color:#878787;
+    font-size: 12px;
+}
+.cart-list-box{
+  background:#FFFFFF;
+  display:flex;
+  font-size:16px;
+}
+.list-info{
+  width:50%;
+  padding:10rpx 30rpx;
+}
+.list-info-size{
+  font-size:14px;
+  color:#B1B1B1;
+}
+.icon-li-circle{
+  margin-left:30rpx;
+  font-size:24px
+}
+.font20{
+  font-size:24px
+}
+.cart-scroll-list{
+  height:450rpx;
+}
+.cut-bar{
+  height:40rpx; 
+  position: fixed;
+  bottom:110rpx;
+  background:#168ced;
+  width:100%;
+  color:#FFF7EC;
+  font-size:14px;
+  text-align:center;
+}
+.dot {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  text-align: center;
+  line-height: 30rpx;
+  background-color: red;
+  right: 15rpx;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20rpx;
+}

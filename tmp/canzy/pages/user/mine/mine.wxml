@@ -1,0 +1,58 @@
+<view class="cont">
+  <view class="avatar flex">
+    <image src="{{avatarUrl}}">
+    </image>
+    <text class="userinfo-nickname">{{nickName}}</text>
+    <view class="money"><span>余额：{{totalMoney}}</span><!--<span style="margin-left:140rpx;">E币：{{eCoin}}</span>--></view>
+  </view>
+  <view class="cells">
+    <block>
+      <view class="cell" bindtap="showcharge">
+        <view class="cell-bd">
+          <text class="desc">充值</text>
+        </view>
+        <view class="cell-ft"></view>
+      </view>
+    </block>
+    <block>
+      <view class="cell" bindtap="showcoupon">
+        <view class="cell-bd">
+          <text class="desc">优惠卷</text>
+        </view>
+        <view class="cell-ft"></view>
+      </view>
+    </block>
+    <block>
+      <view class="cell" bindtap="showchargedetail">
+        <view class="cell-bd">
+          <text class="desc">余额明细</text>
+        </view>
+        <view class="cell-ft"></view>
+      </view>
+    </block>
+    <block>
+      <view class="cell" bindtap="showorderlist">
+        <view class="cell-bd">
+          <text class="desc">我的订单</text>
+        </view>
+        <view class="cell-ft"></view>
+      </view>
+    </block>
+    <!--<block>
+      <view class="cell" bindtap="showeorderlist">
+        <view class="cell-bd">
+          <text class="desc">我的E币兑换</text>
+        </view>
+        <view class="cell-ft"></view>
+      </view>
+    </block>-->
+    <block>
+      <view class="cell" bindtap="bitphone">
+        <view class="cell-bd">
+          <text class="desc">联系客服</text>
+        </view>
+        <view class="cell-ft"></view>
+      </view>
+    </block>
+  </view>
+</view>

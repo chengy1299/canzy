@@ -1,0 +1,180 @@
+page{
+  background: #f4f4f4;
+  min-height: 100%;
+}
+
+.cont{
+  background: #f4f4f4;
+  min-height: 100%;
+  padding-top: 30rpx;
+}
+
+.coupon-form{
+  height: 110rpx;
+  width: 100%;
+  background: #fff;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 20rpx;
+  display: flex;
+}
+
+.input-box{
+  flex: 1;
+  height: 70rpx;
+  color: #333;
+  font-size: 24rpx;
+  background: #fff;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4rpx;
+  margin-right: 30rpx;
+}
+
+.input-box .coupon-sn{
+  position: absolute;
+  top: 10rpx;
+  left: 30rpx;
+  height: 50rpx;
+  width: 100%;
+  color: #000;
+  line-height: 50rpx;
+  font-size: 24rpx;
+}
+
+.clear-icon{
+  position: absolute;
+  top: 21rpx;
+  right: 30rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.add-btn{
+  height: 70rpx;
+  border:none;
+  width: 168rpx;
+  background: #b4282d;
+  border-radius: 0;
+  line-height: 70rpx;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.add-btn.disabled{
+  background: #ccc;
+}
+
+.coupon-list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.item{
+  position: relative;
+  height: 240rpx;
+  width: 100%;
+  background: linear-gradient(to right,#D24161,#f0229b);
+  margin-bottom: 30rpx;
+  padding-top: 52rpx;
+}
+
+.tag{
+  height: 40rpx;
+  background: #00beaf;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  position: absolute;
+  left: 20rpx;
+  color: #fff;
+  top: 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 40rpx;
+}
+
+
+.content{
+  margin-top: 24rpx;
+  margin-left: 40rpx;
+  display: flex;
+  margin-right: 40rpx;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content .left{
+  flex: 1;
+}
+
+.name{
+  font-size: 44rpx;
+  color: #fff;
+  margin-bottom: 14rpx;
+}
+
+.time{
+  font-size: 24rpx;
+  color: rgba(255,255,255, 0.8);
+  line-height: 30rpx;
+}
+
+.content .right{
+  width: 162rpx;
+}
+
+.go{
+  height: 60rpx;
+  border:none;
+  width: 170rpx;
+  background: rgba(255,255,255, 0.8);
+  border-radius: 4rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+
+.condition{
+  position: absolute;
+  width: 90%;
+  bottom: 0;
+  left:0;
+  height: 50rpx;
+  background: rgba(0,0,0,.08);
+  padding: 24rpx 40rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.condition .txt{
+  display: block;
+  height: 30rpx;
+  flex: 1;
+  overflow: hidden;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #fff;
+}
+
+
+.condition .icon{
+  margin-left: 30rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+.note-btn{
+  font-size:14px;
+  color:grey;
+  margin-top:30px
+}
+.dindgan-i{
+  font-size:100px;
+  color:grey;
+}
+.start-btn{
+  width:200px;
+  height:40px;
+  background:#F14C66;
+  font-size:18px;
+  color:white;
+}

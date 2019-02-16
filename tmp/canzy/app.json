@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/order/balance/balance",
+    "pages/user/mine/mine",
+    "pages/user/coupon/coupon",
+    "pages/user/charge/charge",
+    "pages/user/chargedetail/chargedetail",
+    "pages/user/orderlist/orderlist",
+    "pages/user/eorderlist/eorderlist",
+    "pages/user/login/login",
+    "pages/order/list/list",
+    "pages/order/detail/detail",
+    "pages/order/repay/repay",
+    "pages/authorize/index",
+    "pages/eorder/list/list",
+    "pages/eorder/balance/balance",
+    "pages/eorder/detail/detail",
+    "pages/explain/enote/enote",
+    "pages/explain/cnote/cnote",
+    "pages/explain/snote/snote"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#00beaf",
+    "navigationBarTitleText": "餐中苑",
+    "navigationBarTextStyle":"white"
+  },
+    "tabBar": {
+      "color": "#8a8a8a",
+      "selectedColor": "#00beaf",
+      "borderStyle": "black",
+      "list": [
+        {
+          "selectedIconPath": "images/home_s.png",
+          "iconPath": "images/home.png",
+          "pagePath": "pages/index/index",
+          "text": "首页"
+        },
+        {
+          "selectedIconPath": "images/order_s.png",
+          "iconPath": "images/order.png",
+          "pagePath": "pages/order/list/list",
+          "text": "订单"
+        },
+        {
+          "selectedIconPath": "images/mine_s.png",
+          "iconPath": "images/mine.png",
+          "pagePath": "pages/user/mine/mine",
+          "text": "我的"
+        }
+      ]
+    }
+}

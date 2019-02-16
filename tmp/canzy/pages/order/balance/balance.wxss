@@ -1,0 +1,293 @@
+/* pages/order/balance/balance.wxss */
+page{
+  background: #F8F8F8
+}
+.operate-bar{
+  z-index: 1001; 
+  position: absolute;
+  bottom: 0px;
+  height:55px;
+  width:100%;
+  display: flex;
+}
+.gouwuche{
+  width:75%;
+  background:#353535;
+  height: 100%; 
+  
+}
+.gouwuche-icon{
+  font-size:40px;
+  color:#87888E;
+  margin-left:10px;
+   position: relative;
+}
+.number-msg{
+  padding: 1px 7px;
+  border-radius:50%;
+  background:red;
+  color:white;
+  font-size:14px;
+  position: absolute;
+  text-align: center;
+  top:0px;
+  right:-5px;
+}
+
+.gouwuche-price{
+  color:#A9A9A9;
+  display:flex;
+  align-items: center;
+  margin-left:10px;
+  font-size:15px
+}
+.submit-btn{
+  height:100%;
+  background:#F7F7F7;
+  width:25%;
+  display:flex;
+}
+.submit-btn-label{
+  color:white;
+  font-size:15px;
+  margin:auto;
+}
+.activity-color{
+  color:#00beaf;
+}
+.submit-btn{
+  height:100%;
+  background:#F7F7F7;
+  width:25%;
+  display:flex;
+}
+
+.activity-color-bg{
+  background:#00beaf;
+}
+
+.cart-list-box{
+  background:#FFFFFF;
+  display:flex;
+  font-size:15px;
+  border-bottom:1px #E3E3E3 solid;
+}
+.list-info{
+  width:50%;
+  padding:5px 15px;
+}
+.list-info-size{
+  font-size:14px;
+  color:#B1B1B1;
+}
+.icon-li-circle{
+  margin-left:15px;
+  font-size:20px
+}
+.font20{
+  font-size:20px
+}
+.top-bar{
+  height:50px;
+  font-size:14px;
+  background: white;
+  padding:5px 15px;
+  /*text-align:center;*/
+}
+.top-left-label{
+  float:left;
+  padding:5px;
+  margin-left:10px;
+}
+.top-right-label{
+  float:right;
+  font-size:13px;
+  padding:5px;
+}
+.order-info{
+  background: white;
+  margin-top:10px;
+}
+.order-info-title{
+  font-size:14px;
+  color: #D1D1D1;
+  padding: 12px;
+  border-bottom: 1px #E3E3E3 solid
+}
+.order-cut{
+  height:30px;
+  padding:5px 15px;
+  border-bottom: 1px #E3E3E3 solid;
+}
+.order-cut-dec{
+  background:#F07474;
+  font-size:13px;
+  color:white;
+  padding:2px
+}
+.order-cut-note{
+  margin-left:3px;
+  font-size:14px;
+  color:#F07474
+}
+.order-cut-number{
+  font-size:14px;
+  float:right;
+}
+.order-sum{
+  height:30px;
+  padding:5px 15px;
+  font-size:14px;
+  border-bottom: 1px #E3E3E3 solid;
+}
+.order-sum-number{
+  font-size:14px;
+  float:right;
+}
+.order-sum-number-y{
+  font-size:14px;
+  float:right;
+  margin-right:60rpx;
+}
+.note{
+  padding:5px 15px;
+  background:white;
+  margin-top:10px
+}
+.note-text{
+  width:95%;
+  font-size:14px;
+  background:#F2F2F2;
+  padding:10px;
+  height:30px;
+}
+.drawer_screen {  
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1000;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+}  
+  
+.drawer_box_ad { 
+  margin-left: 7%; 
+  width: 86%; 
+  overflow: hidden;  
+  position: fixed;  
+  top: 15%; 
+  z-index: 1001;  
+  background: #FFFFFF;  
+  border-radius: 4px;
+} 
+.drawer_content_ad {  
+  height: 250px;
+  width: 100%;
+  padding: 10px;
+}
+
+.select-line-nav{
+  font-size:14px;
+  margin-left:5px;
+  margin-top:10px;
+  color:#00beaf;
+}
+.select-tab{
+  padding:5px 7px;
+  border:1px solid #ABABAB;
+  font-size:14px;
+  border-radius:5px;
+  margin:5px;
+  color:#ABABAB;
+  z-index:1002;
+}
+.select-active{
+  color:#00beaf;
+  border:1px solid #00beaf;
+}
+.btn-putIn{
+  height:40px;
+  width:90%;
+  font-size:16px;
+  background:#00beaf;
+  color:white;
+  margin-left:10px;
+}
+radio {
+  border: 2rpx solid #ddd;
+  border-radius:5px;
+  height:30px;
+  width:85px;
+  color:#00beaf;
+  text-align: center;
+  line-height:26px;
+  background-color:#F8F8F8;
+}
+.wx-radio-input{
+  width: 40rpx;
+  height: 40rpx; 
+}
+/* radio未选中时样式 */
+radio .wx-radio-input{
+  border: 2rpx solid #F8F8F8;
+  border-radius: 50%;
+  height: 26rpx;
+  width: 26rpx;
+}
+/* radio选中时样式 */
+radio .wx-radio-input.wx-radio-input-checked::before{
+  border-radius: 50%;/* 圆角 */
+  font-size:40rpx; /* 对勾大小 30rpx */
+  color:#fff; /* 对勾颜色 白色 */
+  background-color: #00beaf;
+  border: 2rpx solid #00beaf;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  color: #F07474;
+}
+.cell-ft:after{
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  float:right;
+  margin-top:-10px;
+  margin-right:1px;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  transform: rotate(45deg);
+}
+
+.showModule {
+/* 用样式控制隐藏 visibility: hidden;*//* flex 布局 */
+display: flex;
+justify-content: center;
+align-items: center;
+/* 生成绝对定位的元素，相对于浏览器窗口进行定位 */
+position: fixed;
+/* 如果 height,width 不变的情况下，left,top 不用修改 */
+left: 25%;
+top: 25%;
+height: 20vh;
+width: 50vw;
+/* 不透明 */
+opacity:1;
+background-color: #00beaf;
+/* 圆角 */
+border-radius: 30rpx;
+z-index: 3001;
+}
+
+.showModule .text {
+/* flex 布局 */
+display: flex;
+/* 字体加粗 */
+color: white;
+font-size: 18px;
+}

@@ -1,0 +1,65 @@
+/* pages/explain/snote/snote.wxss */
+.in{
+  background-color:#ffffff;
+  display:flex;
+  justify-content:center;
+  padding:15px;
+  margin-bottom:15px;
+
+}
+.left{
+  border-right:1px solid #d6d6d6;
+  padding-right:20px;
+}
+.right{
+  padding-left:20px;
+}
+.left-in{
+  color: #f9364f;
+}
+.right-in{
+  color: #9a9a9a;
+
+}
+.record{
+  margin-bottom:7px;
+  background-color:#ffffff;
+  padding:12px 10px;
+}
+.under{
+  margin-top:15px;
+}
+.action{
+  font-size:18px;
+  color:#00beaf;
+  margin-bottom:10px;
+}
+.on{
+  margin-top:10px;
+  padding:2px 10px;
+}
+.money{
+  float:right;
+  color:#f9364f;
+}
+.money-r{
+  float:right;
+  color:#00beaf;
+}
+.time{
+  color:#999999;
+  font-size:13px;
+}
+.detail{
+  margin-left:5px;
+}
+.succerr{
+  float:right;
+  color:#999999;
+  font-size:13px;
+}
+.tips{
+  margin-top:20px;
+  color:#999999;
+  padding:0 10px;
+}
